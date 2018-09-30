@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+			var a = parseInt(prompt("Введите значение а"));
+			var b = parseInt(prompt("Введите значение b"));
+			var z = prompt("Что будем вычислять? sum, dif, mul, div");
+			function matOperation(a, b, z){
+				switch(z){
+					case "sum":
+						return a + b;
+						break;
+					case "dif":
+						return a - b;
+						break;
+					case "mul":
+						return a * b;
+						break;
+					case "div":
+						return a / b;
+						break;
+				};
+			};
+			var result = matOperation(a, b, z);
+			alert(result);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+     function generateSecretNumber() {
+      var secretNumber = [];
+      while (secretNumber.length < 4) {
+        var partOfNumber = Math.floor(Math.random() * 9) + 1;
+        if (!secretNumber.includes(partOfNumber))
+          secretNumber.push(partOfNumber);
+      }
+      return secretNumber;
+    }
+
+    console.log(generateSecretNumber());
+
+    // скрипт неокончен
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

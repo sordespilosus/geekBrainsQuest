@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+			var primeNum = []
+			var i = 2;
+			
+			while (i < 100) {
+				primeNum[i] = i;
+				i = ++i;
+			}
+
+			var p = 2;
+			while (p * p <= 100) {
+				var n = 2;
+				while (n * p <= 100) {
+					i = n * p;
+					primeNum[i] = 0;
+					n = ++n;
+				}
+				p = ++p;
+			}
+
+			var i = 1;
+			while (i <= 100) {
+				if (primeNum[i] != 0) {
+					console.log(primeNum[i]);
+				}
+				i = ++i;
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

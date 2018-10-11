@@ -1,0 +1,206 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+    <script src="chess.js"></script>
+	<script>
+      document.addEventListener('DOMContentLoaded', renderPage, false);
+
+	</script>
+    <style>
+    	#board_wrap {
+    		width: 725px;
+    		height: 725px;
+    		border: 5px solid #000;
+    		position: absolute;
+    		left: 50%;
+    		margin-left: -362px;
+    		top: 50%;
+    		margin-top: -362px;
+    	}
+
+    	#central_block {
+    		width: 640px;
+    		height: 640px;
+    		float: left;
+    		border: 1px solid #000;
+    	}
+
+    	#central_block_wrap {
+    		clear: both;
+    	}
+
+    	.chess_field {
+    		width: 80px;
+    		height: 80px;
+    		float: left;
+    	}
+
+    	.letter_blocks {
+    		width: 640px;
+    		position: relative;
+    		margin: 0 40px;
+    	}
+
+    	.letter_blocks span{
+    		display: inline-block;
+    		width: 80px;
+    		text-align: center;
+    		height: 40px;
+    	}
+
+    	.letter_blocks:nth-child(1) {
+    		transform: rotate(180deg);
+    	}
+
+    	.numbers_blocks {
+    		float: left;
+    		height: 640px;
+    		width: 40px;
+    		margin: 0 auto;
+    	}
+
+    	.numbers_blocks span {
+    		display: inline-block;
+    		width: 40px;
+    		text-align: center;
+    		height: 80px;
+    	}
+
+    	.numbers_blocks span p{
+    		text-align: center;
+    		height: 20px;
+    		margin: 30px 0;
+    	}
+
+
+
+    	.chess_field:nth-child(n) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(2n) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(n+9) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(2n + 9) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(n+17) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(2n+18) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(n + 25) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(2n + 26) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(n + 34) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(2n + 33) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(n + 41) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(2n + 42) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(n + 50) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(2n + 49) {
+    		background: #fff;
+    	}
+
+    	.chess_field:nth-child(n + 57) {
+    		background: #000;
+    	}
+
+    	.chess_field:nth-child(2n + 58) {
+    		background: #fff;
+    	}
+
+        .black_figures {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background: #fff;
+            margin: 10px 20px 20px 10px;
+            font-size: 36px;
+            text-align: center;
+            box-shadow: 1px 1px #ccc, 1px 1px #ccc, 2px 2px #ccc, 3px 3px #ccc, 4px 4px #ccc, 5px 5px #ccc, 5px 5px 20px #666;
+        }
+
+        .white_figures {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            background: #fff;
+            margin: 10px 20px 20px 10px;
+            font-size: 36px;
+            text-align: center;
+            box-shadow: 1px 1px #ccc, 1px 1px #ccc, 2px 2px #ccc, 3px 3px #ccc, 4px 4px #ccc, 5px 5px #ccc, 5px 5px 20px #666;
+        }
+    	
+    </style>
+	</head>
+	<body>
+        
+        <script>
+           window.onload = function putFigures() {
+                document.getElementById("cf_1").innerHTML = "<span class='black_figures'>&#9820;</span>";
+                document.getElementById("cf_2").innerHTML = "<span class='black_figures'>&#9822;</span>";
+                document.getElementById("cf_3").innerHTML = "<span class='black_figures'>&#9821;</span>";
+                document.getElementById("cf_4").innerHTML = "<span class='black_figures'>&#9818;</span>";
+                document.getElementById("cf_5").innerHTML = "<span class='black_figures'>&#9819;</span>";
+                document.getElementById("cf_6").innerHTML = "<span class='black_figures'>&#9821;</span>";
+                document.getElementById("cf_7").innerHTML = "<span class='black_figures'>&#9822;</span>";
+                document.getElementById("cf_8").innerHTML = "<span class='black_figures'>&#9820;</span>";
+                document.getElementById("cf_9").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_10").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_11").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_12").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_13").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_14").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_15").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_16").innerHTML = "<span class='black_figures'>&#9823;</span>";
+                document.getElementById("cf_49").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_50").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_51").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_52").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_53").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_54").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_55").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_56").innerHTML = "<span class='white_figures'>&#9817;</span>";
+                document.getElementById("cf_57").innerHTML = "<span class='white_figures'>&#9814;</span>";
+                document.getElementById("cf_58").innerHTML = "<span class='white_figures'>&#9816;</span>";
+                document.getElementById("cf_59").innerHTML = "<span class='white_figures'>&#9815;</span>";
+                document.getElementById("cf_60").innerHTML = "<span class='white_figures'>&#9812;</span>";
+                document.getElementById("cf_61").innerHTML = "<span class='white_figures'>&#9813;</span>";
+                document.getElementById("cf_62").innerHTML = "<span class='white_figures'>&#9815;</span>";
+                document.getElementById("cf_63").innerHTML = "<span class='white_figures'>&#9816;</span>";
+                document.getElementById("cf_64").innerHTML = "<span class='white_figures'>&#9814;</span>";
+            }
+        </script>
+	</body>
+</html>

@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.wrapper {
+				width: 320px;
+				height: 430px;
+				position: relative;
+				left: 50%;
+				top: 50%;
+				margin: -215px 0 0 -160px;
+			}
+
+			h1 {
+				text-align: center;
+				font-family: 'Comic Sans MS';
+			}
+
+			.mini_wrap {
+				width: 320px;
+				height: 100px;
+				clear: both;
+			}
+
+			.small_item {
+				float: left;
+				margin-right: 10px;
+				cursor: pointer;
+				border-radius: 100px;
+			}
+
+			.small_item:hover {
+				box-shadow: 0 0 20px #e905dc;
+				background: #e905dc;
+			}
+
+			.small_item:nth-child(3) {
+				margin-right: 0px;
+			}
+
+			#big_item {
+				margin-top: 20px;
+			}
+
+			#err_pop {
+				text-align: center;
+			}
+
+			#big_item img {
+				width: 320px;
+				height: 240px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Choose your destiny</h1>
+			<div class="mini_wrap">
+				<div class="small_item">
+					<img src="img/rockman.png" alt="rockman" id="rockman" />
+				</div>
+				<div class="small_item">
+					<img src="img/mario.png" alt="mario"  id="mario" />
+				</div>
+				<div class="small_item">
+					<img src="img/bill.png" alt="bill"  id="bill" />
+				</div>
+			</div>
+			<div id="big_item">
+				<img src="img/rockman.gif" alt="" id="big_pic" />
+			</div>
+			<div id="err_pop"></div>
+		</div>
+		<script>
+     		document.querySelector('.mini_wrap').addEventListener('click', function(e) {
+     			var id = e.target.id;
+     			var path = "img/" + id + ".gif";
+     			document.getElementById("big_pic").onerror = function(){
+     				document.getElementById("err_pop").innerHTML = "Sorry pal,\n but your Mario\nin another castle!"
+     			}
+     			document.getElementById("big_pic").src = path;
+     			document.getElementById("err_pop").innerHTML = "";
+     		});
+     		
+		</script>
+	</body>
+</html>

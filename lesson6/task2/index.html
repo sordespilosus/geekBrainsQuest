@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.wrapper {
+				width: 600px;
+				height: 430px;
+				position: relative;
+				left: 50%;
+				top: 50%;
+				margin: -215px 0 0 -300px;
+			}
+
+			.goods {
+				width: 200px;
+				float: left;
+				text-align: center;
+			}
+
+			.img_block img {
+				width: 200px;
+			}
+
+			.cost {
+				font-weight: bold;
+				margin: 20px 0;
+			}
+
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="basket_block" id="basket">
+			</div>
+			<div id="sum"></div>
+			<div id="goods_block">
+				<div id="good1" class="goods">
+					<div class="img_block">
+						<img src="img/fed3.jpg" alt="fed 3" />
+					</div>
+					<div class="review">Фотоаппарат дальномерный ФЭД-3, СССР, 1973г</div>
+					<div>Цена - <span class="cost">500</span> руб</div>
+					<div class="buy_btn"><button id="foto1">КУПИТЬ</button></div>
+				</div>
+
+				<div id="good2" class="goods">
+					<div class="img_block">
+						<img src="img/lubitel.jpg" alt="lubitel" />
+					</div>
+					<div class="review">Фотоаппарат зеркальный Любитель, СССР, 1985г</div>
+					<div>Цена - <span class="cost">900</span> руб</div>
+					<div class="buy_btn"><button id="foto2">КУПИТЬ</button></div>
+				</div>
+				
+				<div id="good3" class="goods">
+					<div class="img_block">
+						<img src="img/zenit-3m.jpg" alt="zenit-3m.jpg" />
+					</div>
+					<div class="review">Фотоаппарат зеркальный Зенит 3М, СССР, 1959г</div>
+					<div>Цена - <span class="cost">3000</span> руб</div>
+					<div class="buy_btn"><button id="foto3">КУПИТЬ</button></div>
+				</div>
+
+
+			</div>
+			
+		</div>
+		<script>
+     		var basketArray = [];
+     		var sum = 0
+
+     		function createTable() {
+                var table = document.createElement('table');
+                table.id = "basket_tbl";
+                table.innerHTML = '<tbody><tr>';
+                table.innerHTML = '</tbody></tr>';
+                return table;
+            }
+            document.getElementById("basket").appendChild(createTable());
+            
+            document.querySelector('#goods_block').addEventListener('click', function(e) {
+                var table = document.getElementById("basket_tbl");
+                var id = e.target.id;
+                basketArray.push(id);
+                var good = document.getElementById(id).parentElement.parentElement.getElementsByClassName("review")[0];
+                var cost = document.getElementById(id).parentElement.parentElement.getElementsByClassName("cost")[0];
+                table.innerHTML += `<td>${good.innerHTML}</td><td>${cost.innerHTML} рублей</td>`;
+                console.log(cost.innerHTML);
+                sum = sum + Number(cost.innerHTML);
+                console.log(sum); 
+                document.getElementById('sum').innerText = 'итоговая стоимость – ' + sum + 'рублей';
+            });
+		</script>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			.wrapper {
+				width: 470px;
+				height: 430px;
+				position: relative;
+				left: 50%;
+				top: 50%;
+				margin: -215px 0 0 -235px;
+			}
+
+			#big_item {
+				margin-top: 20px;
+				float: left;
+			}
+
+			#big_item img {
+				width: 320px;
+				height: 240px;
+			}
+
+			.left_arr, .right_arr {
+				font-size: 140px;
+				color: #ccc;
+				float: left;
+				margin-top: 50px;
+				cursor: pointer;
+			}
+
+			.left_arr:hover, .right_arr:hover {
+				color: #bbb;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="left_arr arrows" id="left">&#129080;</div>
+				<div id="big_item">
+					<img src="img/rockman.gif" alt="" id="big_pic" />
+				</div>
+			<div class="right_arr arrows" id="right">&#129082;</div>
+		</div>
+		<script>
+			var pic = ["img/rockman.gif", "img/mario.gif", "img/bill.gif"] //формируем массив картинок
+			i = 0; //задаем нулевое значение счетчика для перелистывания
+     		document.querySelector('.wrapper').addEventListener('click', function(e) { //слушаем любое событие в блоке .wrapper
+     			var id = e.target.id; //присваиваем переменной id целевой адишник блока, в котором произошло событие
+     			switch(id) {
+     				case "left": //в случае, если id - left, перебираем массив в сторону увеличения и тормозим на длинне массива - 1
+     					if ( i < pic.length - 1 ) {
+     						i++;
+     						document.getElementById("big_item").innerHTML = `<img src=${pic[i]} alt="" id="big_pic" />`
+     					};
+     					break;
+     				case "right": //в случае, если id - right, перебираем массив в сторону уменьшения и тормозим на i > 0
+     						if ( i > 0 ) {
+     							i--;
+     							document.getElementById("big_item").innerHTML = `<img src=${pic[i]} alt="" id="big_pic" />`
+     						};
+     					break;
+     			}
+
+     		});
+     		
+		</script>
+	</body>
+</html>

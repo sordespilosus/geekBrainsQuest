@@ -228,7 +228,7 @@ function createFood() {
         let food_cell_classes = food_cell.getAttribute('class').split(' ');
 
         // проверка на змейку
-        if (!food_cell_classes.includes('snake-unit')) {
+        if (!food_cell_classes.includes('snake-unit') && !food_cell_classes.includes('barrier-unit')) {
             let classes = '';
             for (let i = 0; i < food_cell_classes.length; i++) {
                 classes += food_cell_classes[i] + ' ';
